@@ -57,7 +57,7 @@
       if (!$.data(this, "plugin_" + pluginName)) {
         $.data(this, "plugin_" + pluginName, new Plugin( this, options ));
       } else if(typeof(options) === 'string' && typeof($.data(this, "plugin_" + pluginName)[options]) === 'function') {
-        $.data(this, "plugin_" + pluginName)[options].call(this, Array.prototype.slice.call(arguments, 1));
+                $.data(this, "plugin_" + pluginName)[options].call(this, Array.prototype.slice.call(arguments, 1));
       }
     });
   };
