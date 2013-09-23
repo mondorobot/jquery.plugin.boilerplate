@@ -17,8 +17,8 @@
     propertyName: "value"
   };
 
-  // The actual plugin constructor
-  function Plugin( element, options ) {
+  // Change this name
+  var Plugin = function( element, options ) {
     this.element = element;
     this.$element = $(element);
 
@@ -32,7 +32,7 @@
     this._name = pluginName;
 
     this.init();
-  }
+  };
 
   Plugin.prototype = {
 
