@@ -17,8 +17,8 @@
     propertyName: "value"
   };
 
-  // The actual plugin constructor
-  function Plugin( element, options ) {
+  // Change this name
+  var Plugin = function( element, options ) {
     this.element = element;
     this.$element = $(element);
 
@@ -32,7 +32,7 @@
     this._name = pluginName;
 
     this.init();
-  }
+  };
 
   Plugin.prototype = {
 
@@ -47,8 +47,18 @@
 
     yourOtherFunction: function(el, options) {
       // some logic
+      
+      // use call function on helper methods to we can always use the plugin scope
+      _helpers.yourHelperMethod.call(this);
     }
   };
+  
+  // I like to seperate common helpers methods outside of the plugin scope
+  var _helpers = {
+    yourHelperMethod: function() { 
+      // some helper logic here
+    }
+  }
 
   // A really lightweight plugin wrapper around the constructor,
   // preventing against multiple instantiations
